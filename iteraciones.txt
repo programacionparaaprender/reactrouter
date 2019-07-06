@@ -1,0 +1,12 @@
+Oficial
+--------------
+https://facebook.github.io/create-react-app/docs/getting-started
+
+Rutas
+---------
+https://codeburst.io/getting-started-with-react-router-5c978f70df91
+
+
+npm init react-app reactrouter
+cd reactrouter
+npm start

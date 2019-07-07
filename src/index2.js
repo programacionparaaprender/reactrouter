@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import './index.css';
 import {
     Route,
@@ -12,12 +11,10 @@ import App from './App';
 import Users from './users'
 import Contact from './contact'
 import Notfound from './notfound'
-import Counter from './counter.js'
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux'
 import counterReducer from './reducer';
 
-const history = require("history").createBrowserHistory;
 const store = createStore(counterReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
@@ -31,7 +28,7 @@ const store = createStore(counterReducer,
         //console.log('decrement');
     }
 
-    /* const Counter = () => {
+    const Counter = () => {
         return (
             <div>
                 <h1>{store.getState()}</h1>
@@ -39,15 +36,14 @@ const store = createStore(counterReducer,
                 <button onClick={decrement}>Decrement</button>
             </div>
         )
-    } */
+    }
 
 /* ReactDOM.render(<App />, document.getElementById('root'));
 serviceWorker.unregister();
  */
 
 const routing = (
-   <Provider store={store}>
-   <Router history={history}>
+    <Router>
     <div>
       <ul>
         <li>
@@ -72,7 +68,6 @@ const routing = (
         </li>
       </ul>
       <hr />
-      
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/users" component={Users} />
@@ -80,14 +75,11 @@ const routing = (
         <Route path="/counter" component={Counter} />
         <Route component={Notfound} />
       </Switch>
-      
     </div>
   </Router>
-  </Provider>
   )
-  //ReactDOM.render(routing, document.getElementById('root'))
-  //const render = () => ReactDOM.render(<Counter />,  document.getElementById('root'))
-  
-  const render = () => ReactDOM.render(routing, document.getElementById('root'))
+  //const render = () => ReactDOM.render(routing, document.getElementById('root'))
+  const render = () => ReactDOM.render(<Counter />,
+    document.getElementById('root'))
   render()
 store.subscribe(render);

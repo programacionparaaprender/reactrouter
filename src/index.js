@@ -16,6 +16,8 @@ import Counter from './counter.js'
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux'
 import counterReducer from './reducer';
+import Vieja from './juegos/vieja/index.js';
+
 
 const history = require("history").createBrowserHistory;
 const store = createStore(counterReducer,
@@ -45,36 +47,49 @@ const store = createStore(counterReducer,
 serviceWorker.unregister();
  */
 
+const row = {float: 'left',width: '100%'};
+const col = {float: 'left',width: '33.33%'};
+
 const routing = (
    <Provider store={store}>
    <Router history={history}>
-    <div>
-      <ul>
+   <div  className="dropdown" style = {{background:"red",width:"900px"}} >
+        <nav>
+          <ul class="nav nav-pills float-right">
+
         <li>
-          <NavLink exact activeClassName="active" to="/">
+          <NavLink exact  class="nav-item nav-link" to="/">
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active" to="/users">
+          <NavLink exact  class="nav-item nav-link" to="/vieja">
+            Vieja
+          </NavLink>
+        </li>
+        <li>
+          <NavLink class="nav-item nav-link" to="/users">
             Users
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active" to="/contact">
+          <NavLink class="nav-item nav-link" to="/contact">
             Contact
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active" to="/counter">
+          <NavLink class="nav-item nav-link" to="/counter">
             Counter Redux
           </NavLink>
         </li>
       </ul>
+      </nav>
+
       <hr />
       
       <Switch>
         <Route exact path="/" component={App} />
+        <Route path="/vieja" component={Vieja} />
         <Route path="/users" component={Users} />
         <Route path="/contact" component={Contact} />
         <Route path="/counter" component={Counter} />
@@ -85,9 +100,11 @@ const routing = (
   </Router>
   </Provider>
   )
+  ReactDOM.render(routing, document.getElementById('root'))
+
   //ReactDOM.render(routing, document.getElementById('root'))
   //const render = () => ReactDOM.render(<Counter />,  document.getElementById('root'))
   
-  const render = () => ReactDOM.render(routing, document.getElementById('root'))
+  /* const render = () => ReactDOM.render(routing, document.getElementById('root'))
   render()
-store.subscribe(render);
+store.subscribe(render); */

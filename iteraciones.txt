@@ -1,33 +1,11 @@
-Oficial
---------------
-https://facebook.github.io/create-react-app/docs/getting-started
+
+dotnet new reactredux -o ReactRedux
+
+dotnet new sln
+
+dotnet add reference .\pro\pro.csproj
 
 
-Menu
---------------------------
-https://www.skptricks.com/2018/05/create-dropdown-using-reactjs.html
+npm ls | select-string typescript
 
-Rutas
----------
-https://codeburst.io/getting-started-with-react-router-5c978f70df91
-
-Redux
-------------------
-https://reactgo.com/react-redux-beginners-tutorial/
-
-React Router Redux
------------------------
-https://medium.com/@lavitr01051977/react-router-redux-app-with-call-to-api-70a324c34ecb
-
-npm install --save  react-router react-router-redux history
-npm install --save  redux-saga
-npm install --save react-redux
-npm install --save redux-logger
-
-npm react -v
-npm init react-app reactrouter
-cd reactrouter
-npm start
-
-npm install react-router-dom
-npm install --save redux
+npm install -g react-native-cli

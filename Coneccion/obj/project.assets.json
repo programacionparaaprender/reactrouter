@@ -187,11 +187,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bus209\\Documents\\htdocs\\ReactRedux\\Coneccion\\Coneccion.csproj",
+      "projectUniqueName": "C:\\Users\\Bus209\\Documents\\htdocs\\reactrouter\\Coneccion\\Coneccion.csproj",
       "projectName": "Coneccion",
-      "projectPath": "C:\\Users\\Bus209\\Documents\\htdocs\\ReactRedux\\Coneccion\\Coneccion.csproj",
+      "projectPath": "C:\\Users\\Bus209\\Documents\\htdocs\\reactrouter\\Coneccion\\Coneccion.csproj",
       "packagesPath": "C:\\Users\\Bus209\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bus209\\Documents\\htdocs\\ReactRedux\\Coneccion\\obj\\",
+      "outputPath": "C:\\Users\\Bus209\\Documents\\htdocs\\reactrouter\\Coneccion\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

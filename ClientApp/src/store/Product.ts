@@ -73,17 +73,18 @@ export const reducer: Reducer<ProductState> = (state: ProductState | undefined, 
     const action = incomingAction as KnownAction;
     switch (action.type) {
         case 'ADD_TO_CART':
-           //let products:Array<Producto>
-           let products = []
-           for(var x in state.products)
-            products.push(state.products[x]);
+            //let products:Array<Producto>
+            let products = []
+            for(var x in state.products){
+                products.push(state.products[x]);
+            }
             products.push({
                 id: action.payload.id,
                 name: action.payload.name,
                 description:action.payload.description,
                 price: action.payload.price
-            }) 
-           return  { products: products };
+            }); 
+            return  { products: products };
             
         default:
             return state;

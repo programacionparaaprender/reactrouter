@@ -7,7 +7,6 @@ import Product from './components/Product';
 import FetchData from './components/FetchData';
 
 import './custom.css'
-
 export default () => (
     <Layout>
         <Route exact path='/' component={Home} />
@@ -16,3 +15,13 @@ export default () => (
         <Route path='/fetch-data/:startDateIndex?' component={FetchData} />
     </Layout>
 );
+
+/* export default () => (
+    <Layout>
+        <Route exact path='/' component={Home} />
+        <Route path='/counter' component={Counter} />
+        <Route path='/product' component={Product} />
+        <Route path='/fetch-data/:startDateIndex?' component={FetchData} />
+    </Layout>
+);
+ */

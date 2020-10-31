@@ -28,15 +28,49 @@ class Product extends React.PureComponent<ProductProps, Producto> {
             id: '1',
             name: 'Product 1',
             description:'Description product 1',
-            price: 20.00
+            price: "20.00"
         }
         this.handleChange1 = this.handleChange1.bind(this);
+        this.handleChange2 = this.handleChange2.bind(this);
+        this.handleChange3 = this.handleChange3.bind(this);
+        this.handleChange4 = this.handleChange4.bind(this);
     } 
+    añadirProducto(){
+        var product:Producto; 
+        product = {
+            id: this.state.id,
+            name: this.state.name,
+            description:this.state.description,
+            price: this.state.price
+        }
+        this.props.addToCart(product);
+    }
     handleChange1(e:any) {
         /* var obj[e.target.name] = e.target.value
         this.setState(obj); */
         //console.log(e.target.value);
         this.setState({ id: String(e.target.value) });
+        //this.state.id = e.target.value;
+    }
+    handleChange2(e:any) {
+        /* var obj[e.target.name] = e.target.value
+        this.setState(obj); */
+        //console.log(e.target.value);
+        this.setState({ name: String(e.target.value) });
+        //this.state.id = e.target.value;
+    }
+    handleChange3(e:any) {
+        /* var obj[e.target.name] = e.target.value
+        this.setState(obj); */
+        //console.log(e.target.value);
+        this.setState({ description: String(e.target.value) });
+        //this.state.id = e.target.value;
+    }
+    handleChange4(e:any) {
+        /* var obj[e.target.name] = e.target.value
+        this.setState(obj); */
+        //console.log(e.target.value);
+        this.setState({ price: String(e.target.value) });
         //this.state.id = e.target.value;
     }
     public render() {
@@ -71,12 +105,39 @@ class Product extends React.PureComponent<ProductProps, Producto> {
                     </div>
                     <div className="form-group">
                         <label>Nombre:</label>
-                        <input type="text" id="Inombre" name="nombre" placeholder="Ingrese nombre" className="form-control" />
+                        <input 
+                            onChange={this.handleChange2}
+                            value={this.state.name} 
+                            type="text" 
+                            id="Inombre" 
+                            name="nombre" 
+                            placeholder="Ingrese nombre" 
+                            className="form-control" />
                     
                     </div>
                     <div className="form-group">
                         <label>Descripcion:</label>
-                        <input type="text" id="Idescripcion" name="descripcion" placeholder="Ingrese descripcion" className="form-control" />
+                        <input 
+                            onChange={this.handleChange3}
+                            value={this.state.description}
+                            type="text" 
+                            id="Idescripcion" 
+                            name="descripcion" 
+                            placeholder="Ingrese descripcion" 
+                            className="form-control" />
+                    
+                    </div>
+                    <div className="form-group">
+                        <label>Precio:</label>
+                        <input 
+                            onChange={this.handleChange4}
+                            value={this.state.price}
+                            title="Ingrese precio" 
+                            type="number" 
+                            id="Idescripcion" 
+                            name="descripcion" 
+                            placeholder="Ingrese precio" 
+                            className="form-control" />
                     
                     </div>
                     <div className="btn-group" role="group" aria-label="Basic example">

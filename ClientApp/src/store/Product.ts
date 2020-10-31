@@ -24,7 +24,7 @@ export interface ADD_TO_CART {
         id: string;
         name: string;
         description:string
-        price: number;
+        price: string;
     }
 }
 export interface DELETE_PRODUCT { 
@@ -57,19 +57,19 @@ export const reducer: Reducer<ProductState> = (state: ProductState | undefined, 
                 id:"1",
                 name:"Product One",
                 description: "This is product one",
-                price: 29.99,
+                price: "29.99",
             },
             {
                 id:"2",
                 name:"Product Two",
                 description: "This is product two",
-                price: 39.99,
+                price: "39.99",
             },
             {
                 id:"3",
                 name:"Product Three",
                 description: "This is product three",
-                price: 59.99,
+                price: "59.99",
             }
         ]
         return { products: products };

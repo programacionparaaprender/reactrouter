@@ -2,18 +2,18 @@ export interface Producto{
     id: string;
     name: string;
     description:string
-    price: number;
+    price: string;
 }
 
 export class ProductoClass{
     id: string;
     name: string;
     description:string
-    price: number;
+    price: string;
     constructor(){
         this.id = "2";
         this.name = "Nombre1";
         this.description="Descripcion1";
-        this.price=20.0;
+        this.price="20.0";
     } 
 }

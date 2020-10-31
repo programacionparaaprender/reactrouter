@@ -5,7 +5,7 @@ import { ApplicationState } from '../store';
 
 //import * as CounterStore from '../store/Counter';
 import * as ProductStore from '../store/Product';
-import {Producto,ProductoClass} from '../types'
+import {Producto} from '../types'
 
 type ProductProps =
 ProductStore.ProductState &
@@ -34,7 +34,17 @@ class Product extends React.PureComponent<ProductProps, Producto> {
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleChange3 = this.handleChange3.bind(this);
         this.handleChange4 = this.handleChange4.bind(this);
+        this.añadirProducto = this.añadirProducto.bind(this);
+        this.editarProducto = this.editarProducto.bind(this);
     } 
+    editarProducto(forecast:any){
+        this.setState({
+            id: forecast.id,
+            name: forecast.name,
+            description:forecast.description,
+            price: forecast.price
+        });
+    }
     añadirProducto(){
         var product:Producto; 
         product = {
@@ -74,16 +84,12 @@ class Product extends React.PureComponent<ProductProps, Producto> {
         //this.state.id = e.target.value;
     }
     public render() {
-        var product:ProductoClass = new ProductoClass();  //Product.ProductState.;
-        //https://developer.mozilla.org/es/docs/Web/JavaScript/Introducci%C3%B3n_a_JavaScript_orientado_a_objetos
+        //var product:ProductoClass = new ProductoClass();  //Product.ProductState.;
         /* product = {
             id: '1',
             name: 'Product 1',
             description:'Description product 1',
             price: 20.00
-        } */
-        /* this.state = {
-            product: product
         } */
         return (
             <React.Fragment>
@@ -143,7 +149,7 @@ class Product extends React.PureComponent<ProductProps, Producto> {
                     <div className="btn-group" role="group" aria-label="Basic example">
                         <button type="button"
                             className="btn btn-primary btn-lg"
-                            onClick={() => { this.props.addToCart(product); }}>
+                            onClick={() => { this.añadirProducto(); }}>
                             addToCard
                         </button>
                         <button type="button"
@@ -177,7 +183,9 @@ class Product extends React.PureComponent<ProductProps, Producto> {
                         <td>{forecast.description}</td>
                         <td>
                             <div className="btn-group" role="group" aria-label="Basic example">
-                                <button type="button"
+                                <button 
+                                    onClick={() => { this.editarProducto(forecast) }}
+                                    type="button"
                                     className="btn btn-success">
                                     Editar
                                 </button>

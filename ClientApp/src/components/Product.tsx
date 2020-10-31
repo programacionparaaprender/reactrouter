@@ -5,7 +5,7 @@ import { ApplicationState } from '../store';
 
 //import * as CounterStore from '../store/Counter';
 import * as ProductStore from '../store/Product';
-import {Producto} from '../types'
+import {Producto,ProductoClass} from '../types'
 
 type ProductProps =
 ProductStore.ProductState &
@@ -13,27 +13,60 @@ ProductStore.ProductState &
     RouteComponentProps<{}>;
 
 
-
-class Product extends React.PureComponent<ProductProps> {
-    public render() {
-        let product:Producto //Product.ProductState.;
-        product = {
+//Producto colocarlo en el extends para que funcione todo
+class Product extends React.PureComponent<ProductProps, Producto> {
+    /* public state: Producto = {
+        id: '1',
+        name: 'Product 1',
+        description:'Description product 1',
+        price: 20.00
+    };  */
+    constructor(props: any) {
+        super(props);
+        
+        this.state = {
             id: '1',
             name: 'Product 1',
             description:'Description product 1',
             price: 20.00
         }
+        this.handleChange1 = this.handleChange1.bind(this);
+    } 
+    handleChange1(e:any) {
+        /* var obj[e.target.name] = e.target.value
+        this.setState(obj); */
+        //console.log(e.target.value);
+        this.setState({ id: String(e.target.value) });
+        //this.state.id = e.target.value;
+    }
+    public render() {
+        var product:ProductoClass = new ProductoClass();  //Product.ProductState.;
+        //https://developer.mozilla.org/es/docs/Web/JavaScript/Introducci%C3%B3n_a_JavaScript_orientado_a_objetos
+        /* product = {
+            id: '1',
+            name: 'Product 1',
+            description:'Description product 1',
+            price: 20.00
+        } */
+        /* this.state = {
+            product: product
+        } */
         return (
             <React.Fragment>
                 <h1>
-                    
                     Ejemplo de productos usando estados persistentes.
-                    
                 </h1>
                 <form>
                     <div className="form-group">
                         <label>Código producto:</label>
-                        <input type="number" id="Iid" name="id" placeholder="Ingrese código" className="form-control" />
+                        <input 
+                            onChange={this.handleChange1}
+                            value={this.state.id} 
+                            type="number" 
+                            id="Iid" 
+                            name="id" 
+                            placeholder="Ingrese código" 
+                            className="form-control" />
                     
                     </div>
                     <div className="form-group">
@@ -51,6 +84,10 @@ class Product extends React.PureComponent<ProductProps> {
                             className="btn btn-primary btn-lg"
                             onClick={() => { this.props.addToCart(product); }}>
                             addToCard
+                        </button>
+                        <button type="button"
+                            className="btn btn-success">
+                            Editar
                         </button>
                         <button type="reset"
                             className="btn btn-warning btn-lg">
@@ -84,6 +121,7 @@ class Product extends React.PureComponent<ProductProps> {
                                     Editar
                                 </button>
                                 <button type="button"
+                                    onClick={() => { this.props.deleteProduct(forecast.id); }}
                                     className="btn btn-danger">
                                     Eliminar
                                 </button>

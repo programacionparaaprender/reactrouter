@@ -27,10 +27,13 @@ export interface ADD_TO_CART {
         price: number;
     }
 }
-
+export interface DELETE_PRODUCT { 
+    type: 'DELETE_PRODUCT',
+    id: string;
+}
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
 // declared type strings (and not any other arbitrary string).
-export type KnownAction = IncrementCountAction | DecrementCountAction | ADD_TO_CART ;
+export type KnownAction = IncrementCountAction | DecrementCountAction | ADD_TO_CART | DELETE_PRODUCT;
 
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
@@ -39,7 +42,9 @@ export type KnownAction = IncrementCountAction | DecrementCountAction | ADD_TO_C
 export const actionCreators = {
     increment: () => ({ payload:'data',type: 'INCREMENT_COUNT' } as IncrementCountAction),
     decrement: () => ({ type: 'DECREMENT_COUNT' } as DecrementCountAction),
-    addToCart: (product:Producto) => ({ payload:product,type: 'ADD_TO_CART' } as ADD_TO_CART)  
+    addToCart: (product:Producto) => ({ payload:product,type: 'ADD_TO_CART' } as ADD_TO_CART),  
+    deleteProduct: (id:string) => ({ id:id,type: 'DELETE_PRODUCT' } as DELETE_PRODUCT)  
+
 };
 
 // ----------------
@@ -70,9 +75,21 @@ export const reducer: Reducer<ProductState> = (state: ProductState | undefined, 
         return { products: products };
     }
     console.log('incomingAction: '+JSON.stringify(incomingAction))
-    const action = incomingAction as KnownAction;
+    var action = incomingAction as KnownAction;
     switch (action.type) {
+        case 'DELETE_PRODUCT':
+            action = incomingAction as DELETE_PRODUCT;
+            //let products:Array<Producto>
+            let products2 = []
+            for(var y in state.products){
+                if(String(state.products[y].id) !== String(action.id))
+                    products2.push(state.products[y]);
+            } 
+            return  { products: products2 };
+            
+
         case 'ADD_TO_CART':
+            action = incomingAction as ADD_TO_CART;
             //let products:Array<Producto>
             let products = []
             for(var x in state.products){

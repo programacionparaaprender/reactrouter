@@ -1,3 +1,15 @@
+
+export interface IBoard{
+    squares: Array<string>
+}  
+
+export interface Vieja {
+    history: Array<IBoard>,
+    stepNumber: number,
+    xIsNext: boolean,
+}
+
+
 export interface Producto{
     id: string;
     name: string;

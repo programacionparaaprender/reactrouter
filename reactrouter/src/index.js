@@ -17,7 +17,7 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux'
 import counterReducer from './reducer';
 import Vieja from './juegos/vieja/index.js';
-
+import GoogleMap from './google/GoogleMap.js';
 
 const history = require("history").createBrowserHistory;
 const store = createStore(counterReducer,
@@ -53,42 +53,49 @@ const col = {float: 'left',width: '33.33%'};
 const routing = (
    <Provider store={store}>
    <Router history={history}>
-   <div  className="dropdown" style = {{background:"red",width:"900px"}} >
+   <header>
+   <div  className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" light>
         <nav>
           <ul class="nav nav-pills float-right">
 
-        <li>
-          <NavLink exact  class="nav-item nav-link" to="/">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink exact  class="nav-item nav-link" to="/vieja">
-            Vieja
-          </NavLink>
-        </li>
-        <li>
-          <NavLink class="nav-item nav-link" to="/users">
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <NavLink class="nav-item nav-link" to="/contact">
-            Contact
-          </NavLink>
-        </li>
-        <li>
-          <NavLink class="nav-item nav-link" to="/counter">
-            Counter Redux
-          </NavLink>
-        </li>
-      </ul>
-      </nav>
+            <li>
+              <NavLink exact  class="nav-item nav-link" to="/">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink exact  class="nav-item nav-link" to="/googlemaps">
+                Google maps
+              </NavLink>
+            </li>
+            <li>
+              <NavLink exact  class="nav-item nav-link" to="/vieja">
+                Vieja
+              </NavLink>
+            </li>
+            <li>
+              <NavLink class="nav-item nav-link" to="/users">
+                Users
+              </NavLink>
+            </li>
+            <li>
+              <NavLink class="nav-item nav-link" to="/contact">
+                Contact
+              </NavLink>
+            </li>
+            <li>
+              <NavLink class="nav-item nav-link" to="/counter">
+                Counter Redux
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
 
-      <hr />
+        <hr />
       
       <Switch>
         <Route exact path="/" component={App} />
+        <Route path="/googlemaps" component={GoogleMap} />
         <Route path="/vieja" component={Vieja} />
         <Route path="/users" component={Users} />
         <Route path="/contact" component={Contact} />
@@ -97,6 +104,7 @@ const routing = (
       </Switch>
       
     </div>
+   </header>
   </Router>
   </Provider>
   )

@@ -1,4 +1,27 @@
 
+## Ejemplo de como crear proyecto con google maps
+npm install --save google-maps-react
+npm install @types/googlemaps --save-dev
+https://www.npmjs.com/package/google-maps-react
+https://stackoverflow.com/questions/55263520/google-maps-react-adding-markers-with-lat-lng
+
+
+## react para programadores vuejs
+https://sebastiandedeyne.com/react-for-vue-developers/
+
+corrección en index.d.ts
+type mapEventHandler = (mapProps?: IMapProps, map?: google.maps.Map, event?:Function) => any
+type markerEventHandler = (props?: IMarkerProps, marker?: google.maps.Marker, event?:Function) => any
+
+corrección en index.d.ts
+export class Test<T,S> {
+  field1: T;
+  field2: S;
+}
+
+type Style = Test<string, string | number | boolean>
+
+## Como crear proyecto
 dotnet new reactredux -o ReactRedux
 
 dotnet new sln

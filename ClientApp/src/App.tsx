@@ -6,13 +6,13 @@ import Counter from './components/Counter';
 import Product from './components/Product';
 import FetchData from './components/FetchData';
 import Vieja from './components/Vieja';
-import GoogleMaps from './components/google/GoogleMaps';
+import GoogleMapsType from './components/google/GoogleMapsType';
 import './custom.css'
 export default () => (
     <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/vieja' component={Vieja} />
-        <Route path='/googlemaps' component={GoogleMaps} />
+        <Route path='/googlemaps' component={GoogleMapsType} />
         <Route path='/counter' component={Counter} />
         <Route path='/product' component={Product} />
         <Route path='/fetch-data/:startDateIndex?' component={FetchData} />

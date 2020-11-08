@@ -6,6 +6,17 @@ https://www.npmjs.com/package/google-maps-react
 https://stackoverflow.com/questions/55263520/google-maps-react-adding-markers-with-lat-lng
 
 
+## ejemplo google maps para typescript
+https://developers.google.com/maps/documentation/javascript/using-typescript
+https://www.npmjs.com/package/@types/google-map-react
+https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/google-map-react/google-map-react-tests.tsx
+https://storksnestblog.wordpress.com/2020/08/16/setting-up-google-maps-with-react-typescript/
+npm install --save @types/google-map-react
+npm install --save-dev @types/googlemaps
+
+## props react
+https://es.reactjs.org/docs/render-props.html#:~:text=El%20t%C3%A9rmino%20%E2%80%9Crender%20prop%E2%80%9D%20se,su%20propia%20l%C3%B3gica%20de%20representaci%C3%B3n.
+
 ## react para programadores vuejs
 https://sebastiandedeyne.com/react-for-vue-developers/
 

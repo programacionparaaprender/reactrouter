@@ -8,7 +8,7 @@ import { ApplicationState } from '../../store';
 import * as MarkerStore from '../../store/google/GoogleMaps';
 import { Coordenada} from '../../store/google/GoogleMaps';
 type MarkerProps =
-MarkerStore.MarkerState &
+MarkerStore.MarkerGoogleState &
     typeof MarkerStore.actionCreators &
     RouteComponentProps<{}>;
 //IMapProps
@@ -53,7 +53,7 @@ export class MapContainer extends React.Component<MarkerProps,any> {
             lat: 37.77985420629088, 
             lng: -122.49541049891131
           }]
- */
+ *///
             return (
         <Map 
             onClick={this.onMapa}

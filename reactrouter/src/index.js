@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import './index.css';
 import {
@@ -8,50 +8,38 @@ import {
     BrowserRouter as Router,
     Switch,
   } from 'react-router-dom'
+
 import App from './App';
+
 import Users from './users'
 import Contact from './contact'
 import Notfound from './notfound'
 import Counter from './counter.js'
-import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux'
 import counterReducer from './reducer';
 import Vieja from './juegos/vieja/index.js';
 import GoogleMap from './google/GoogleMap.js';
+import { ConnectedRouter } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
 
-const history = require("history").createBrowserHistory;
-const store = createStore(counterReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+import configureStore from './store/configureStorePersisted';
+const store = configureStore(history);
 
-    function increment() {
-        store.dispatch({ type: "INCREMENT" })
-        //console.log('increment');
-    }
-    
-    function decrement() {
-        store.dispatch({ type: "DECREMENT" })
-        //console.log('decrement');
-    }
+const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
+const history = createBrowserHistory({ basename: baseUrl });
 
-    /* const Counter = () => {
-        return (
-            <div>
-                <h1>{store.getState()}</h1>
-                <button onClick={increment}>Increment</button>
-                <button onClick={decrement}>Decrement</button>
-            </div>
-        )
-    } */
 
-/* ReactDOM.render(<App />, document.getElementById('root'));
-serviceWorker.unregister();
- */
 
-const row = {float: 'left',width: '100%'};
-const col = {float: 'left',width: '33.33%'};
-
+/* const row = {float: 'left',width: '100%'};
+const col = {float: 'left',width: '33.33%'}; */
+const App2 = () => {
+  return (
+      <ConnectedRouter history={history}>
+          <App />
+      </ConnectedRouter>
+  );
+};
 const routing = (
-   <Provider store={store}>
    <Router history={history}>
    <header>
    <div  className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" light>
@@ -94,7 +82,7 @@ const routing = (
         <hr />
       
       <Switch>
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={GoogleMap} />
         <Route path="/googlemaps" component={GoogleMap} />
         <Route path="/vieja" component={Vieja} />
         <Route path="/users" component={Users} />
@@ -106,10 +94,13 @@ const routing = (
     </div>
    </header>
   </Router>
-  </Provider>
-  )
+  ) 
   ReactDOM.render(routing, document.getElementById('root'))
-
+  //ReactDOM.render(<App2></App2>, document.getElementById('root'))
+/*   const store = createStore(counterReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  const render = () => ReactDOM.render(<App2 />,  document.getElementById('root'))
+  store.subscribe(render); */
   //ReactDOM.render(routing, document.getElementById('root'))
   //const render = () => ReactDOM.render(<Counter />,  document.getElementById('root'))
   

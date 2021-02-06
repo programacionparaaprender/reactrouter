@@ -1,6 +1,6 @@
 {
-  "short_name": "ReactRedux",
-  "name": "ReactRedux",
+  "short_name": "reactrouter",
+  "name": "reactrouter",
   "icons": [
     {
       "src": "favicon.ico",

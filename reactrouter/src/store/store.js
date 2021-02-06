@@ -1,10 +1,15 @@
 // Imports: Dependencies
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
-import { createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
+import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 // Imports: Redux
-import rootReducer from '../reducers/index';
+import rootReducer from '../reducer/index';
+
+
+
 // Middleware: Redux Persist Config
 const persistConfig = {
   // Root
@@ -29,6 +34,7 @@ const store = createStore(
     createLogger(),
   ),
 );
+
 // Middleware: Redux Persist Persister
 let persistor = persistStore(store);
 // Exports
@@ -36,28 +42,3 @@ export {
   store,
   persistor,
 };
-
-/* import * as Counter from './Counter'; */
-
-
-/* export const ApplicationState = {
-    counter: Counter.CounterState,
-}
-
-
-export const reducers = {
-    counter: Counter.reducer,
-    products: Product.reducer,
-    weatherForecasts: WeatherForecasts.reducer,
-    vieja: Vieja.reducer,
-    googlemaps: GoogleMaps.reducer,
-}; */
-
-// This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are
-// correctly typed to match your store.
-/* export const AppThunkAction = {
-    (
-        dispatch(action) => (), 
-        getState() => (ApplicationState))
-}
- */

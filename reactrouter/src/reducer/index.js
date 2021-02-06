@@ -1,14 +1,16 @@
-const reducer = (state = { cityName: 'London' }, action) => {
-    switch (action.type) {
-      case 'GET_TEMP':
-        return { ...state, loading: true, callDone: true };
-      case 'TEMP_RECEIVED':
-        return { ...state, temp: action.json, loading: false }
-      case 'CITY_NAME':
-        return {...state, cityName: action.name ? action.name   
-        :"London"}
-      default:
-        return state;
-   }
- };
- export default reducer;
+// Imports: Dependencies
+import { combineReducers } from 'redux';
+// Imports: Reducers
+import authReducer from './authReducer';
+import counterReducer from './counterReducer';
+
+
+
+
+// Redux: Root Reducer
+const rootReducer = combineReducers({
+  authReducer: authReducer,
+  counterReducer: counterReducer,
+});
+// Exports
+export default rootReducer;

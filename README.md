@@ -1,12 +1,22 @@
 
-## Ejemplo de como crear proyecto con google maps
+### Ejemplo de como crear proyecto con google maps
 npm install --save google-maps-react
 npm install @types/googlemaps --save-dev
 https://www.npmjs.com/package/google-maps-react
 https://stackoverflow.com/questions/55263520/google-maps-react-adding-markers-with-lat-lng
 
 
-## ejemplo google maps para typescript
+### ejemplo de integrar stores
+https://itnext.io/react-native-why-you-should-be-using-redux-persist-8ad1d68fa48b
+
+npm install redux react-redux redux-persist redux-thunk connected-react-router --save
+
+pendiente corregir error Import in body of module; reorder to top  import/first
+https://github.com/jashkenas/coffeescript/issues/4815
+
+
+
+### ejemplo google maps para typescript
 https://developers.google.com/maps/documentation/javascript/using-typescript
 https://www.npmjs.com/package/@types/google-map-react
 https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/google-map-react/google-map-react-tests.tsx

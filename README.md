@@ -1,98 +1,68 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Ejemplo de como crear proyecto con google maps
-npm install --save google-maps-react
-npm install @types/googlemaps --save-dev
-https://www.npmjs.com/package/google-maps-react
-https://stackoverflow.com/questions/55263520/google-maps-react-adding-markers-with-lat-lng
+## Available Scripts
 
+In the project directory, you can run:
 
-### ejemplo de integrar stores
-https://itnext.io/react-native-why-you-should-be-using-redux-persist-8ad1d68fa48b
+### `npm start`
 
-npm install redux react-redux redux-persist redux-thunk connected-react-router --save
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-pendiente corregir error Import in body of module; reorder to top  import/first
-https://github.com/jashkenas/coffeescript/issues/4815
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
+### `npm test`
 
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### ejemplo google maps para typescript
-https://developers.google.com/maps/documentation/javascript/using-typescript
-https://www.npmjs.com/package/@types/google-map-react
-https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/google-map-react/google-map-react-tests.tsx
-https://storksnestblog.wordpress.com/2020/08/16/setting-up-google-maps-with-react-typescript/
-npm install --save @types/google-map-react
-npm install --save-dev @types/googlemaps
+### `npm run build`
 
-## props react
-https://es.reactjs.org/docs/render-props.html#:~:text=El%20t%C3%A9rmino%20%E2%80%9Crender%20prop%E2%80%9D%20se,su%20propia%20l%C3%B3gica%20de%20representaci%C3%B3n.
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## react para programadores vuejs
-https://sebastiandedeyne.com/react-for-vue-developers/
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-corrección en index.d.ts
-type mapEventHandler = (mapProps?: IMapProps, map?: google.maps.Map, event?:Function) => any
-type markerEventHandler = (props?: IMarkerProps, marker?: google.maps.Marker, event?:Function) => any
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-corrección en index.d.ts
-export class Test<T,S> {
-  field1: T;
-  field2: S;
-}
+### `npm run eject`
 
-type Style = Test<string, string | number | boolean>
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## Como crear proyecto
-dotnet new reactredux -o ReactRedux
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-dotnet new sln
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-dotnet add reference .\pro\pro.csproj
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Learn More
 
-npm ls | select-string typescript
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-npm install -g react-native-cli
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
-redux-persist
-https://stackoverflow.com/questions/48514147/rnredux-persist-autorehydrate-is-not-a-function
-https://www.npmjs.com/package/redux-persist
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
+### Analyzing the Bundle Size
 
-// configureStore.js
- 
-import { createStore } from 'redux'
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
- 
-import rootReducer from './reducers'
- 
-const persistConfig = {
-  key: 'root',
-  storage,
-}
- 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
- 
-export default () => {
-  let store = createStore(persistedReducer)
-  let persistor = persistStore(store)
-  return { store, persistor }
-}
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-//otro archivo
+### Making a Progressive Web App
 
-import { PersistGate } from 'redux-persist/integration/react'
- 
-// ... normal setup, create store and persistor, import components etc.
- 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <RootComponent />
-      </PersistGate>
-    </Provider>
-  );
-};
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

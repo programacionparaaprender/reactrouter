@@ -31,3 +31,12 @@ npm start
 
 npm install react-router-dom
 npm install --save redux
+
+### Publicar proyecto en github
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+https://www.youtube.com/watch?v=OUsC13AEiUQ&t=36s
+
+si ocurre un error
+https://stackoverflow.com/questions/63964575/fatal-a-branch-named-gh-pages-already-exists
+
+
